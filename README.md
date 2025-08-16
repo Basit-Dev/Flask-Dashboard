@@ -183,3 +183,5 @@ In short, the app provides a lightweight, for managing a list of users with full
   <strong>Mobile Add User Confirm</strong><br>
   <img src="documentation/wireframes/figma/colour/mobile-add-user-confirm-colour.png" alt="Mobile Add User Confirm" width="300" />
 </p>
+
+---
