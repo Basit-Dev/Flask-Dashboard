@@ -1,0 +1,23 @@
+{
+  "name": "flask-dashboard",
+  "version": "1.0.0",
+  "description": "A Flask-based user dashboard with PostgreSQL, HTML, and TailwindCSS. A user registration with full CRUD operations (add, edit, delete). Provides a responsive interface with a clean design, and PostgreSQL integration for managing users efficiently.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Basit-Dev/Flask-Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Basit-Dev/Flask-Dashboard/issues"
+  },
+  "homepage": "https://github.com/Basit-Dev/Flask-Dashboard#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
