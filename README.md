@@ -86,3 +86,100 @@ The User Directory App follows a straightforward flow:
 In short, the app provides a lightweight, for managing a list of users with full CRUD functionality.
 
 ---
+
+## Figma Files
+
+<p align="center">
+  <strong>Colour Pallette</strong><br>
+  <img src="documentation/wireframes/figma/colour/colour-pallette.png" alt="Colour Pallette" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Home</strong><br>
+  <img src="documentation/wireframes/figma/mono/desktop-home.png" alt="Desktop Home" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Users</strong><br>
+  <img src="documentation/wireframes/figma/mono/desktop-user.png" alt="Desktop Users" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Update User</strong><br>
+  <img src="documentation/wireframes/figma/mono/desktop-update-user.png" alt="Desktop Update User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Add User</strong><br>
+  <img src="documentation/wireframes/figma/mono/desktop-add-user.png" alt="Desktop Add User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Add User Confirm</strong><br>
+  <img src="documentation/wireframes/figma/mono/desktop-add-user-confirm.png" alt="Desktop Add User Confirm" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Delete User</strong><br>
+  <img src="documentation/wireframes/figma/mono/desktop-delete-user.png" alt="Desktop Delete User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Mobile User</strong><br>
+  <img src="documentation/wireframes/figma/mono/mobile-user.png" alt="Mobile User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Mobile Delete</strong><br>
+  <img src="documentation/wireframes/figma/mono/mobile-delete.png" alt="Mobile Delete" width="300" />
+</p>
+
+<p align="center">
+  <strong>Mobile Add User Confirm</strong><br>
+  <img src="documentation/wireframes/figma/mono/mobile-add-user-confim.png" alt="Mobile Add User Confirm" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Home</strong><br>
+  <img src="documentation/wireframes/figma/colour/desktop-home-colour.png" alt="Desktop Home" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Users</strong><br>
+  <img src="documentation/wireframes/figma/colour/desktop-user-colour.png" alt="Desktop Users" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Update User</strong><br>
+  <img src="documentation/wireframes/figma/colour/desktop-update-user-colour.png" alt="Desktop Update User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Add User</strong><br>
+  <img src="documentation/wireframes/figma/colour/desktop-add-user-colour.png" alt="Desktop Add User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Add User Confirm</strong><br>
+  <img src="documentation/wireframes/figma/colour/desktop-add-user-confirm-colour.png" alt="Desktop Add User Confirm" width="300" />
+</p>
+
+<p align="center">
+  <strong>Desktop Delete User</strong><br>
+  <img src="documentation/wireframes/figma/colour/desktop-delete-user-colour.png" alt="Desktop Delete User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Mobile User</strong><br>
+  <img src="documentation/wireframes/figma/colour/mobile-user-colour.png" alt="Mobile User" width="300" />
+</p>
+
+<p align="center">
+  <strong>Mobile Delete</strong><br>
+  <img src="documentation/wireframes/figma/colour/mobile-delete-colour.png" alt="Mobile Delete" width="300" />
+</p>
+
+<p align="center">
+  <strong>Mobile Add User Confirm</strong><br>
+  <img src="documentation/wireframes/figma/colour/mobile-add-user-confirm-colour.png" alt="Mobile Add User Confirm" width="300" />
+</p>
