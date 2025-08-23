@@ -39,7 +39,7 @@
                         <td class="px-6 py-4 break-words">{{ user.department }}</td>
                         <td class="px-6 py-4">
                             <!-- Action buttons -->
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                            <a href="{{ url_for('update_user', id=user.id) }}" class="text-blue-600 hover:underline">Edit</a>
                             <span class="text-gray-300 px-2">|</span>
                             <a href="{{ url_for('delete_user', id=user.id) }}" class="text-red-600 hover:underline">Delete</a>
                         </td>
@@ -62,7 +62,7 @@
                     <div class="text-gray-700 text-sm">{{ user.department }}</div>
                 </div>
                 <div class="flex flex-col items-end gap-2 shrink-0">
-                    <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                    <a href="{{ url_for('update_user', id=user.id) }}" class="text-blue-600 hover:underline">Edit</a>
                     <a href="{{ url_for('delete_user', id=user.id) }}" class="text-red-600 hover:underline">Delete</a>
                 </div>
             </div>

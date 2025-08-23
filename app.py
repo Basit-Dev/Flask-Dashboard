@@ -68,13 +68,35 @@ def add_user():
         return redirect(url_for("users"))
     return render_template("add_user.html")
 
-@app.route("/update")
-def update_user():
-    return render_template("update_user.html")
+# Update user
+@app.route("/update/<int:id>", methods=["GET", "POST"])
+def update_user(id):
+    user = User.query.get_or_404(id)
+    if request.method == "POST":
+        user.name = request.form["name"]
+        user.email = request.form["email"]
+        user.phone = request.form["phone"]
+        user.department = request.form["department"]
+        db.session.commit()
+        return redirect(url_for("users"))
+    return render_template("update_user.html", user=user)
 
-@app.route("/update/confirm")
-def confirm_update():
-    return render_template("confirm_update.html")
+# Confirm updated user
+@app.route("/update/confirm/<int:id>", methods=["POST"])
+def confirm_update_user(id):
+    user = User.query.get_or_404(id)
+    name = request.form["name"]
+    email = request.form["email"]
+    phone = request.form["phone"]
+    department = request.form["department"]
+    return render_template(
+        "confirm_update.html",
+        user=user,
+        name=name,
+        email=email,
+        phone=phone,
+        department=department,
+    )
 
 # Delete user
 @app.route("/delete/<int:id>", methods=["GET", "POST"])
