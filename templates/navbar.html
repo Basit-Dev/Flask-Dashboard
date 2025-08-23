@@ -1,5 +1,5 @@
 <nav class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <a href="{{ url_for('welcome') }}" class="text-blue-600 font-bold text-xl">Flask Dashboard</a>
 
@@ -16,7 +16,7 @@
 
             <!-- View users button -->
             <div id="nav-links" class="hidden sm:flex space-x-6 items-center">
-                <a href="#" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+                <a href="{{ url_for('users') }}" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18" />
                     </svg>
@@ -24,7 +24,7 @@
                 </a>
 
                 <!-- Add user button -->
-                <a href="#" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+                <a href="{{ url_for('add_user') }}" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
@@ -36,9 +36,9 @@
         <!-- Mobile links -->
         <div id="mobile-nav" class="sm:hidden hidden mt-4 space-y-2">
             <!-- View users button -->
-            <a href="#" class="text-gray-600 hover:text-blue-600">View Users</a>
+            <a href="{{ url_for('users') }}" class="text-gray-600 hover:text-blue-600">View Users</a>
             <!-- Add user button -->
-            <a href="#" class="block text-gray-600 hover:text-blue-600">Add User</a>
+            <a href="{{ url_for('add_user') }}" class="block text-gray-600 hover:text-blue-600">Add User</a>
         </div>
     </div>
 </nav>

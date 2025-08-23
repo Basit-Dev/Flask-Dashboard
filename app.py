@@ -14,5 +14,9 @@ def users():
 def add_user():
     return render_template("add_user.html")
 
+@app.route("/update")
+def update_user():
+    return render_template("update_user.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
