@@ -76,9 +76,15 @@ def update_user():
 def confirm_update():
     return render_template("confirm_update.html")
 
-@app.route("/delete")
-def delete_user():
-    return render_template("delete_user.html")
+# Delete user
+@app.route("/delete/<int:id>", methods=["GET", "POST"])
+def delete_user(id):
+    user = User.query.get_or_404(id)
+    if request.method == "POST":
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for("users"))
+    return render_template("delete_user.html", user=user)
 
 if __name__ == "__main__":
     app.run(debug=True)

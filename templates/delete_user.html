@@ -4,7 +4,7 @@
 {% block content %}
 <div class="max-w-md mx-auto bg-white p-6 rounded shadow mt-12">
     <h1 class="text-xl font-bold text-red-600 mb-4">Confirm Delete</h1>
-    <p>Are you sure you want to delete <strong>user name</strong>?</p>
+    <p>Are you sure you want to delete <strong>{{ user.name }}</strong>?</p>
 
     <!-- Delete User Form -->
     <form method="POST" class="mt-6 flex justify-between">
