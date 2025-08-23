@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from dotenv import load_dotenv
@@ -42,8 +42,6 @@ def test_db():
     except Exception as e:
         return f"Database connection failed: {e}"
 
-
-
 # Welcome page
 @app.route("/")
 def welcome():
@@ -55,8 +53,19 @@ def users():
     all_users = User.query.all()
     return render_template("users.html", users=all_users)
 
-@app.route("/add")
+# Add new user
+@app.route("/add", methods=["GET", "POST"])
 def add_user():
+    if request.method == "POST":
+        user = User(
+            name=request.form["name"],
+            email=request.form["email"],
+            phone=request.form["phone"],
+            department=request.form["department"],
+        )
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("users"))
     return render_template("add_user.html")
 
 @app.route("/update")

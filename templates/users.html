@@ -33,12 +33,8 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     {% for user in users %}
                     <tr>
-                        <td class="px-6 py-4 text-gray-800 font-medium break-words">
-                            {{ user.name }}
-                        </td>
-                        <td class="px-6 py-4 text-blue-600 break-words">
-                            {{ user.email }}
-                        </td>
+                        <td class="px-6 py-4 text-gray-800 font-medium break-words">{{ user.name }}</td>
+                        <td class="px-6 py-4 text-blue-600 break-words">{{ user.email }}</td>
                         <td class="px-6 py-4 break-words">{{ user.phone }}</td>
                         <td class="px-6 py-4 break-words">{{ user.department }}</td>
                         <td class="px-6 py-4">
