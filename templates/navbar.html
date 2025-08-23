@@ -12,11 +12,11 @@
                 </button>
             </div>
 
-            <!-- Desktop nav -->
-
+            <!-- Desktop nav with if statements for active menu styling -->
             <!-- View users button -->
             <div id="nav-links" class="hidden sm:flex space-x-6 items-center">
-                <a href="{{ url_for('users') }}" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+                <a href="{{ url_for('users') }}"
+                    class="flex items-center gap-1 {% if request.path == '/users' or request.path == '/' %}text-blue-600 font-semibold{% else %}text-gray-600 hover:text-blue-600{% endif %}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18" />
                     </svg>
@@ -24,7 +24,8 @@
                 </a>
 
                 <!-- Add user button -->
-                <a href="{{ url_for('add_user') }}" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
+                <a href="{{ url_for('add_user') }}"
+                    class="flex items-center gap-1 {% if request.path == '/add' %}text-blue-600 font-semibold{% else %}text-gray-600 hover:text-blue-600{% endif %}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
@@ -33,12 +34,16 @@
             </div>
         </div>
 
-        <!-- Mobile links -->
+        <!-- Mobile links with if statements for active menu styling -->
         <div id="mobile-nav" class="sm:hidden hidden mt-4 space-y-2">
             <!-- View users button -->
-            <a href="{{ url_for('users') }}" class="text-gray-600 hover:text-blue-600">View Users</a>
+            <a href="{{ url_for('users') }}"
+                class="block {% if request.path == '/users' or request.path == '/' %}text-blue-600 font-semibold{% else %}text-gray-600 hover:text-blue-600{% endif %}">View
+                Users</a>
             <!-- Add user button -->
-            <a href="{{ url_for('add_user') }}" class="block text-gray-600 hover:text-blue-600">Add User</a>
+            <a href="{{ url_for('add_user') }}"
+                class="block {% if request.path == '/add' %}text-blue-600 font-semibold{% else %}text-gray-600 hover:text-blue-600{% endif %}">Add
+                User</a>
         </div>
     </div>
 </nav>
