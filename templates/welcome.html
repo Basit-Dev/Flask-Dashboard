@@ -1,13 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-    <title>Flask Dashboard</title>
-  </head>
-  <body>
-    <h1>Flask is running</h1>
-    <p>TEST</p>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome | Flask User Directory</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+  <main class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-center">
+    <h1 class="text-2xl md:text-3xl font-semibold text-blue-600">
+      Welcome to the User Directory App
+    </h1>
+
+    <p class="mt-4 text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6">
+      This project is a simple CRUD (Create, Read, Update, Delete) application built with
+      <strong>HTML</strong>, <strong>TailWind</strong>, <strong>Flask</strong> and <strong>PostgreSQL</strong>.
+      It allows you to manage a list of users — add new users, update their details, and remove them if needed.
+    </p>
+
+    <p class="text-gray-600 mb-8">
+      Click the button below to view the current list of users and get started.
+    </p>
+
+    <!-- Button -->
+    <div class="mt-6">
+      <a href="users.html"
+        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition">
+        View User List
+      </a>
+    </div>
+  </main>
+</body>
+
 </html>
