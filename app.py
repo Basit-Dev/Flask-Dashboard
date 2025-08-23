@@ -18,5 +18,9 @@ def add_user():
 def update_user():
     return render_template("update_user.html")
 
+@app.route("/update/confirm")
+def confirm_update():
+    return render_template("confirm_update.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Confirm Update{% endblock %}
+
+{% block content %}
+
+<div class="max-w-xl mx-auto mt-20 bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold text-blue-600 mb-4">Confirm Update</h2>
+    <p class="mb-4">Are you sure you want to save these changes for <strong>username</strong>?</p>
+
+    <ul class="text-gray-700 mb-6">
+        <li><strong>Name:</strong> name</li>
+        <li><strong>Email:</strong> email</li>
+        <li><strong>Phone:</strong> phone</li>
+        <li><strong>Department:</strong> department</li>
+    </ul>
+
+    <form method="POST" action="#">
+        <input type="hidden" name="name" value="name">
+        <input type="hidden" name="email" value="email">
+        <input type="hidden" name="phone" value="phone">
+        <input type="hidden" name="department" value="department">
+
+        <div class="flex justify-end gap-3">
+            <!-- Cancel Button -->
+            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">Cancel</a>
+            <!-- Confirm Update Button -->
+            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Confirm
+                Update</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
