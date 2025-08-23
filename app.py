@@ -44,14 +44,16 @@ def test_db():
 
 
 
-
+# Welcome page
 @app.route("/")
 def welcome():
     return render_template("welcome.html")
 
+# Show all users
 @app.route("/users")
 def users():
-    return render_template("users.html")
+    all_users = User.query.all()
+    return render_template("users.html", users=all_users)
 
 @app.route("/add")
 def add_user():
