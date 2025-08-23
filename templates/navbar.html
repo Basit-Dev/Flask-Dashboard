@@ -1,8 +1,9 @@
 <nav class="bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <a href="#" class="text-blue-600 font-bold text-xl">Flask Dashboard</a>
+            <a href="{{ url_for('welcome') }}" class="text-blue-600 font-bold text-xl">Flask Dashboard</a>
 
+            <!-- Mobile menu button -->
             <div class="sm:hidden">
                 <button id="nav-toggle" class="text-gray-700 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -12,6 +13,8 @@
             </div>
 
             <!-- Desktop nav -->
+
+            <!-- View users button -->
             <div id="nav-links" class="hidden sm:flex space-x-6 items-center">
                 <a href="#" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -20,6 +23,7 @@
                     View Users
                 </a>
 
+                <!-- Add user button -->
                 <a href="#" class="flex items-center gap-1 text-gray-600 hover:text-blue-600">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -31,12 +35,15 @@
 
         <!-- Mobile links -->
         <div id="mobile-nav" class="sm:hidden hidden mt-4 space-y-2">
+            <!-- View users button -->
             <a href="#" class="text-gray-600 hover:text-blue-600">View Users</a>
+            <!-- Add user button -->
             <a href="#" class="block text-gray-600 hover:text-blue-600">Add User</a>
         </div>
     </div>
 </nav>
 
+<!-- JavaScript for mobile menu toggle -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const toggle = document.getElementById("nav-toggle");

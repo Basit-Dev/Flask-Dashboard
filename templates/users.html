@@ -1,74 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-</head>
+{% block content %}
+<div class="mt-14 max-w-5xl mx-auto">
+    <div class="flex items-center justify-between mb-4">
+        <h1 class="text-3xl font-bold text-blue-600">User Directory</h1>
 
-<body class="bg-gray-100 min-h-screen p-6">
-    <!-- Navbar -->
-    {% include 'navbar.html' %}
+        <!-- Add User button -->
+        <a href="{{ url_for('add_user') }}"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+            + Add User
+        </a>
+    </div>
 
-    <div class="mt-14 max-w-5xl mx-auto">
-        <div class="flex items-center justify-between mb-4">
-            <h1 class="text-3xl font-bold text-blue-600">User Directory</h1>
-            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-                + Add User
-            </a>
+    <!-- Desktop view -->
+    <div class="hidden md:block">
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left border border-gray-200 rounded-lg shadow">
+                <!-- Table header -->
+                <thead class="bg-blue-600 text-white uppercase text-xs">
+                    <tr>
+                        <th class="px-6 py-3">Name</th>
+                        <th class="px-6 py-3">Email</th>
+                        <th class="px-6 py-3">Phone</th>
+                        <th class="px-6 py-3">Department</th>
+                        <th class="px-6 py-3">Actions</th>
+                    </tr>
+                </thead>
+                <!-- Table body -->
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 text-gray-800 font-medium break-words">John Doe</td>
+                        <td class="px-6 py-4 text-blue-600 break-words">john@example.com</td>
+                        <td class="px-6 py-4 break-words">123-456-7890</td>
+                        <td class="px-6 py-4 break-words">Engineering</td>
+                        <td class="px-6 py-4">
+                            <!-- Action buttons -->
+                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                            <span class="text-gray-300 px-2">|</span>
+                            <a href="#" class="text-red-600 hover:underline">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <!-- Desktop view -->
-        <div class="hidden md:block">
-            <div class="overflow-x-auto">
-                <table class="min-w-full text-sm text-left border border-gray-200 rounded-lg shadow">
-                    <thead class="bg-blue-600 text-white uppercase text-xs">
-                        <tr>
-                            <th class="px-6 py-3">Name</th>
-                            <th class="px-6 py-3">Email</th>
-                            <th class="px-6 py-3">Phone</th>
-                            <th class="px-6 py-3">Department</th>
-                            <th class="px-6 py-3">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-6 py-4 text-gray-800 font-medium break-words">John Doe</td>
-                            <td class="px-6 py-4 text-blue-600 break-words">john@example.com</td>
-                            <td class="px-6 py-4 break-words">123-456-7890</td>
-                            <td class="px-6 py-4 break-words">Engineering</td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                                <span class="text-gray-300 px-2">|</span>
-                                <a href="#" class="text-red-600 hover:underline">Delete</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Mobile view -->
-        <div class="md:hidden space-y-3">
-            <div class="bg-white rounded shadow p-4">
-                <div class="flex items-start justify-between gap-3">
-                    <div>
-                        <div class="font-semibold text-gray-900">John Doe</div>
-                        <div class="text-blue-600 text-sm break-words">john@example.com</div>
-                        <div class="text-gray-700 text-sm">123-456-7890</div>
-                        <div class="text-gray-700 text-sm">Engineering</div>
-                    </div>
-                    <div class="flex flex-col items-end gap-2 shrink-0">
-                        <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                        <a href="#" class="text-red-600 hover:underline">Delete</a>
-                    </div>
+    <!-- Mobile view -->
+    <div class="md:hidden space-y-3">
+        <div class="bg-white rounded shadow p-4">
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                    <div class="font-semibold text-gray-900">John Doe</div>
+                    <div class="text-blue-600 text-sm break-words">john@example.com</div>
+                    <div class="text-gray-700 text-sm">123-456-7890</div>
+                    <div class="text-gray-700 text-sm">Engineering</div>
+                </div>
+                <div class="flex flex-col items-end gap-2 shrink-0">
+                    <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                    <a href="#" class="text-red-600 hover:underline">Delete</a>
                 </div>
             </div>
         </div>
-
     </div>
-</body>
 
-</html>
+</div>
+
+{% endblock %}
