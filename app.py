@@ -22,5 +22,9 @@ def update_user():
 def confirm_update():
     return render_template("confirm_update.html")
 
+@app.route("/delete")
+def delete_user():
+    return render_template("delete_user.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
