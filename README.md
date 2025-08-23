@@ -185,3 +185,6 @@ In short, the app provides a lightweight, for managing a list of users with full
 </p>
 
 ---
+
+## Credits and Acknowledge
+- Flash messages credits to StackOverflow.

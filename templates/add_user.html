@@ -5,15 +5,6 @@
 <div class="max-w-xl mx-auto bg-white p-8 rounded shadow mt-14 px-4 sm:px-8">
     <h1 class="text-2xl font-bold mb-6 text-center text-blue-600">Add New User</h1>
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <!-- Success Message -->
-    <div class="bg-green-100 border border-green-300 text-green-800 p-3 rounded mb-4">
-        User added successfully!
-    </div>
-    {% endif %}
-    {% endwith %}
-
     <!-- Form fields -->
     <form method="POST" action="{{ url_for('add_user') }}" class="space-y-4">
         <div>

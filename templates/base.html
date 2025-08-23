@@ -16,6 +16,19 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- Flash messages auto dismiss script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const message = document.querySelectorAll('.flash-message');
+            message.forEach((msg) => {
+                setTimeout(() => {
+                    msg.classList.add('opacity-0');
+                    setTimeout(() => msg.remove(), 500);
+                }, 3000);
+            });
+        });
+    </script>
+
 </body>
 
 </html>

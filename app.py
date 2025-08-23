@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from dotenv import load_dotenv
@@ -8,6 +8,9 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+
+# Secret key for flash messages
+app.secret_key = "supersecretkey"  # use a secure value in real apps
 
 # Get variables from env
 DB_USER = os.getenv("DB_USER")
@@ -65,6 +68,7 @@ def add_user():
         )
         db.session.add(user)
         db.session.commit()
+        flash("User added successfully!", "success")
         return redirect(url_for("users"))
     return render_template("add_user.html")
 
@@ -78,6 +82,7 @@ def update_user(id):
         user.phone = request.form["phone"]
         user.department = request.form["department"]
         db.session.commit()
+        flash("User updated successfully!", "success")
         return redirect(url_for("users"))
     return render_template("update_user.html", user=user)
 
@@ -105,6 +110,7 @@ def delete_user(id):
     if request.method == "POST":
         db.session.delete(user)
         db.session.commit()
+        flash("User deleted successfully!", "success")
         return redirect(url_for("users"))
     return render_template("delete_user.html", user=user)
 
