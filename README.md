@@ -222,4 +222,9 @@ In short, the app provides a lightweight, for managing a list of users with full
   <img src="documentation/validation/add-user-screen-html-validation.png" alt="Add user validation" width="300" />
 </p>
 
+<p align="center">
+  <strong>CSS</strong><br>
+  <img src="documentation/validation/css-validation.png" alt="CSS output validation" width="300" />
+</p>
+
 ---
