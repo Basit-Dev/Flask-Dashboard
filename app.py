@@ -10,7 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # Secret key for flash messages
-app.secret_key = "supersecretkey"  # use a secure value in real apps
+app.secret_key = os.getenv("FLASH_SECRET_KEY")  # use a secure value in real apps
 
 # Get variables from env
 DB_USER = os.getenv("DB_USER")
