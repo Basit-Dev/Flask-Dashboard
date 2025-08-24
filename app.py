@@ -1,8 +1,16 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+import os
+
+from flask import (
+    Flask,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from dotenv import load_dotenv
-import os
 
 # Load variables from .env file
 load_dotenv()
@@ -25,7 +33,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = (
 
 # Create database 
 db = SQLAlchemy(app)
-
 
 # Model for Users table
 class User(db.Model):
@@ -56,15 +63,15 @@ def users():
     # Search for users or show all users
     query = request.args.get("query", "").strip()
     if query:
-        users = User.query.filter(
+        results = User.query.filter(
             (User.name.ilike(f"%{query}%")) |
             (User.email.ilike(f"%{query}%")) |
             (User.phone.ilike(f"%{query}%")) |
             (User.department.ilike(f"%{query}%"))
         ).all()
     else:
-        users = User.query.all()
-    return render_template("users.html", users=users)
+        results = User.query.all()
+    return render_template("users.html", users=results)
 
 # Add new user
 @app.route("/add", methods=["GET", "POST"])
