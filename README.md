@@ -228,3 +228,113 @@ In short, the app provides a lightweight, for managing a list of users with full
 </p>
 
 ---
+
+# Frontend Manual Testing Guide
+
+## What Are We Testing?
+We want to make sure the app looks, works and responds when you click buttons, fill out forms, search for users and CRUD operations display the correct results.
+
+Pages to check:
+- **Welcome page** (`/`)
+- **User list** (`/users`)
+- **Add user** form (`/add`)
+- **Update user** form (`/update/<id>`)
+- **Confirm update** (`/update/confirm/<id>`)
+- **Delete user** confirmation (`/delete/<id>`)
+
+---
+
+## Test Implementation Requirements
+- Browser: Chrome, Firefox, Safari, or Edge.
+- Will run on (`http://localhost:5000`).
+- Some fake data like:  
+  - Alice Brown, `alice@example.com`, `07123456789`, Sales  
+  - Bob Chen, `bob@example.com`, `07987654321`, Support  
+
+---
+
+## Step 1: Check General Stuff
+
+- Page load without errors.
+- Layout neat and not broken.
+- buttons and links work when clicked.
+- On phone or tablet, it resize nicely without weird scroll bars.
+
+---
+
+## Step 2: Welcome Page (`/`)
+
+- Page loads as intended.
+- Buttons take you to the user list page.
+
+---
+
+## Step 3: User List (`/users`)
+
+- If there are no users, a message - "No users found" displays.
+- Search by name, email, phone, department - displays correct results.
+- When something random is typed - "No users found".
+- After searching, “Show all” button displays and when clicked displays all users.
+- Update and delete buttons navigate tpo the correct pages.
+
+---
+
+## Step 4: Add User (`/add`)
+
+- Checked if input fileds are blank and click submit - Error displays.
+- When invalid email typed - Shows error.
+- Once a user user is added - it takes you back to the user list with a success message.
+- When an email is the same - a “duplicate email” error displays.
+
+---
+
+## Step 5: Update User (`/update/<id>`)
+
+- Form shows the correct id for the user.
+- After changing details and updated - “User updated successfully” displays.
+- When changing the email to one that already exists - Error displays. **FAILED**
+- After clicking cancel - it takes you back to the user list.
+
+---
+
+## Step 6: Confirm Update (`/update/confirm/<id>`)
+
+- It shows the new details before updating.
+- After click confirm - it saves the changes.
+- If you click cancel - it takes you back without updating.
+
+---
+
+## Step 7: Delete User (`/delete/<id>`)
+
+- It asks “Are you sure?” before deleting.
+- Cancel - User is still in the list.
+- Once clicked delete - User is removed from the list.
+
+---
+
+## Step 8: Messages & Alerts
+
+- When things work, green "Success" messages display.
+- When there’s an error (like duplicate email), a red "Error" message displays.
+- Messages go away automatically, when X clicked or when user refreshes the screen.
+
+---
+
+## Step 9: Mobile View
+
+- Navbar, forms, and tables look as intended.
+- You scroll easily without breaking the layout.
+
+---
+
+## Step 10: Quick Test
+
+After making changes, quickly check:
+- [x] Add a user - works.
+- [x] Search users - works.
+- [x] Update user - works.
+- [X] Delete user - works.
+- [x] Layout on mobile - works.
+
+---
