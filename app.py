@@ -53,8 +53,18 @@ def welcome():
 # Show all users
 @app.route("/users")
 def users():
-    all_users = User.query.all()
-    return render_template("users.html", users=all_users)
+    # Search for users or show all users
+    query = request.args.get("query", "").strip()
+    if query:
+        users = User.query.filter(
+            (User.name.ilike(f"%{query}%")) |
+            (User.email.ilike(f"%{query}%")) |
+            (User.phone.ilike(f"%{query}%")) |
+            (User.department.ilike(f"%{query}%"))
+        ).all()
+    else:
+        users = User.query.all()
+    return render_template("users.html", users=users)
 
 # Add new user
 @app.route("/add", methods=["GET", "POST"])
