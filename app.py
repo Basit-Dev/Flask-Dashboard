@@ -31,7 +31,7 @@ db = SQLAlchemy(app)
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
-    email = db.Column(db.String(100))
+    email = db.Column(db.String(100), unique=True, nullable=False)
     phone = db.Column(db.String(20))
     department = db.Column(db.String(100))
 
@@ -60,9 +60,18 @@ def users():
 @app.route("/add", methods=["GET", "POST"])
 def add_user():
     if request.method == "POST":
+        email = request.form["email"]
+
+        # Check if email already exists
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            flash("A user with this email already exists!", "error")
+            return redirect(url_for("add_user")) 
+
+        # If no duplicate, create new user
         user = User(
             name=request.form["name"],
-            email=request.form["email"],
+            email=email,
             phone=request.form["phone"],
             department=request.form["department"],
         )
