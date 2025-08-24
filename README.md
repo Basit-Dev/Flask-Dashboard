@@ -229,7 +229,7 @@ In short, the app provides a lightweight, for managing a list of users with full
 
 ---
 
-# Frontend Manual Testing Guide
+# Frontend Manual Testing
 
 ## What Are We Testing?
 We want to make sure the app looks, works and responds when you click buttons, fill out forms, search for users and CRUD operations display the correct results.
@@ -292,7 +292,7 @@ Pages to check:
 
 - Form shows the correct id for the user.
 - After changing details and updated - “User updated successfully” displays.
-- When changing the email to one that already exists - Error displays. **FAILED**
+- When changing the email to one that already exists - Error displays.
 - After clicking cancel - it takes you back to the user list.
 
 ---

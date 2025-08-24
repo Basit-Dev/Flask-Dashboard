@@ -102,14 +102,25 @@ def add_user():
 @app.route("/update/<int:id>", methods=["GET", "POST"])
 def update_user(id):
     user = User.query.get_or_404(id)
+
     if request.method == "POST":
+        email = request.form["email"].strip()
+
+        # Check if another user already has this email
+        duplicate = User.query.filter(User.email == email, User.id != id).first()
+        if duplicate:
+            flash("A user with this email already exists!", "error")
+            return redirect(url_for("update_user", id=id))
+
+        # Proceed with update
         user.name = request.form["name"]
-        user.email = request.form["email"]
+        user.email = email
         user.phone = request.form["phone"]
         user.department = request.form["department"]
         db.session.commit()
         flash("User updated successfully!", "success")
         return redirect(url_for("users"))
+
     return render_template("update_user.html", user=user)
 
 # Confirm updated user
@@ -140,5 +151,6 @@ def delete_user(id):
         return redirect(url_for("users"))
     return render_template("delete_user.html", user=user)
 
+# Run the app
 if __name__ == "__main__":
     app.run(debug=True)
