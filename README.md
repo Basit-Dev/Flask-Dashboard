@@ -188,3 +188,38 @@ In short, the app provides a lightweight, for managing a list of users with full
 
 ## Credits and Acknowledge
 - Flash messages credits to StackOverflow.
+
+
+## Screenshots of validation
+
+<p align="center">
+  <strong>welcome.html</strong><br>
+  <img src="documentation/validation/welcome-screen-html-validation.png" alt="Welcome screen validation" width="300" />
+</p>
+
+<p align="center">
+  <strong>users.html</strong><br>
+  <img src="documentation/validation/users-screen-html-validation.png" alt="User screen validation" width="300" />
+</p>
+
+<p align="center">
+  <strong>update_user.html</strong><br>
+  <img src="documentation/validation/update-user-screen-html-validation.png" alt="Update user validation" width="300" />
+</p>
+
+<p align="center">
+  <strong>delete_user.html</strong><br>
+  <img src="documentation/validation/delete-user-screen-html-validation.png" alt="Delete user validation" width="300" />
+</p>
+
+<p align="center">
+  <strong>confirm_update.html</strong><br>
+  <img src="documentation/validation/confirm-update-screen-html-validation.png" alt="Confirm update validation" width="300" />
+</p>
+
+<p align="center">
+  <strong>add_user.html</strong><br>
+  <img src="documentation/validation/add-user-screen-html-validation.png" alt="Add user validation" width="300" />
+</p>
+
+---
