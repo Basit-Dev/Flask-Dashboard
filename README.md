@@ -188,7 +188,11 @@ In short, the app provides a lightweight, for managing a list of users with full
 
 ## Credits and Acknowledge
 - Flash messages credits to StackOverflow.
+- pytest Docs.
+- pyBites.
+- YouTube -> Corey Schafer, ArjanCodes for Python testing.
 
+---
 
 ## Screenshots of validation
 
@@ -293,6 +297,7 @@ Pages to check:
 - Form shows the correct id for the user.
 - After changing details and updated - “User updated successfully” displays.
 - When changing the email to one that already exists - Error displays.
+- If the email is a duplicate regardless of case sensitive - Error displays.
 - After clicking cancel - it takes you back to the user list.
 
 ---
