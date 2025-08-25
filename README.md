@@ -371,3 +371,10 @@ Run the tests with: pytest -vs
 </p>
 
 ---
+
+## Databse Model Diagram
+
+<p align="center">
+  <strong>DB Model</strong><br>
+  <img src="documentation/database/database_diagram.png" alt="Database model diagram" width="300" />
+</p>
