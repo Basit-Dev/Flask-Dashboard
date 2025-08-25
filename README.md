@@ -338,3 +338,36 @@ After making changes, quickly check:
 - [x] Layout on mobile - works.
 
 ---
+
+## BackEnd Automated Testing
+
+### What We Tested
+
+|------------------|--------------------------------------------------|------------------------------------------------------------------|
+| Category         | Test Name                                        | What It Checks                                                   |
+|------------------|--------------------------------------------------|------------------------------------------------------------------|
+| **Page Load**    | `test_home_200`                                  | Homepage (`/`) loads successfully                                |
+|                  | `test_users_page_200`                            | Users page loads and users appear                                |
+|                  | `test_users_search_query`                        | Search filters users correctly                                   |
+| **Add User**     | `test_add_user_get_form`                         | Add user form page loads                                         |
+|                  | `test_add_user_post_success`                     | New user can be added successfully                               |
+|                  | `test_add_user_duplicate_email_shows_error`      | Duplicate emails are blocked                                     |
+|                  | `test_add_user_duplicate_email_case_insensitive` | Duplicate email checks case-insensitively                        |
+| **Update User**  | `test_update_user_get_form`                      | Update form page loads correctly                                 |
+|                  | `test_update_user_post_success`                  | User details can be updated successfully                         |
+|                  | `test_update_user_duplicate_email_blocked`       | Updating to existing email is blocked                            |
+| **Delete User**  | `test_delete_user_flow`                          | User can be created and then deleted successfully                |
+|------------------|--------------------------------------------------|------------------------------------------------------------------|
+
+###  How to Run Tests
+
+Run the tests with: pytest -vs
+
+### Test Results Outcome
+
+<p align="center">
+  <strong>Test Results</strong><br>
+  <img src="documentation/validation/automated_test_results.png" alt="Automated test results" width="300" />
+</p>
+
+---
