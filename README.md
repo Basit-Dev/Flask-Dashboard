@@ -632,6 +632,7 @@ DB_HOST=localhost
 DB_NAME=mydatabase
 
 FLASK_ENV=development
+FLASK_DEBUG=0
 FLASH_SECRET_KEY=mysecretkey
 DATABASE_URL=postgresql://postgres:<password>@localhost/<mydatabase>
 TEST_DATABASE_URL=sqlite:///:memory:
