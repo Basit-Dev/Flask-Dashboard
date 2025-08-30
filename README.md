@@ -480,6 +480,7 @@ gunicorn -b 0.0.0.0:8000 app:app
 ```
 Test in browser:  
 `http://13.62.20.58/`
+`http://ec2-13-62-20-58.eu-north-1.compute.amazonaws.com/`
 
 ---
 
