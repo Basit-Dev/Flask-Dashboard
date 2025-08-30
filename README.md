@@ -566,6 +566,7 @@ Check Nginx config:
 ```bash
 sudo nginx -t
 sudo systemctl reload nginx
+```
 
 ---
 
@@ -587,5 +588,87 @@ This allows all incoming web traffic on port 80.
 Edit the Nginx site config:
 ```bash
 sudo nano /etc/nginx/sites-available/myapp
+```
 
 ----
+
+## Run the App Locally (Development Setup)
+
+This guide explains how to set up and run the Flask app on your local machine for development.
+
+### 1. Prerequisites
+Make sure you have the following installed:
+- Python **3.10+**
+- Git
+- One of:
+  - **PostgreSQL**
+
+### 2. Clone the Repository
+```bash
+git clone https://github.com/Basit-Dev/Flask-Dashboard.git
+cd Flask-Dashboard
+```
+
+### 3. Create a Virtual Environment
+**macOS/Linux**:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+Create a `.env` file in the project root:
+
+**Option A: PostgreSQL**
+```env
+DB_USER=myuser
+DB_PASSWORD=mypassword
+DB_HOST=localhost
+DB_NAME=mydatabase
+
+FLASK_ENV=development
+FLASH_SECRET_KEY=mysecretkey
+DATABASE_URL=postgresql://postgres:<password>@localhost/<mydatabase>
+TEST_DATABASE_URL=sqlite:///:memory:
+```
+
+### 5. (PostgreSQL Only) Create the Database
+```bash
+createdb flask_app_db
+```
+
+### 6. Initialize Tables
+```bash
+python -c "from app import db; db.create_all();"
+```
+
+### 7. Run the App
+Flask Development Server:
+```bash
+python app.py
+```
+```bash
+Visit: http://127.0.0.1:5000
+```
+
+---
+
+## Fetch Changes From GitGub Repo
+
+ - Follow the steps:
+```bash
+cd /var/www/myapp
+source venv/bin/activate
+git fetch origin
+sudo systemctl restart myapp
+sudo systemctl status myapp
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+---
