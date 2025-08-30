@@ -388,7 +388,7 @@ Run the tests with: pytest -vs
 
 # Flask App Deployment on AWS EC2 (Ubuntu)
 
-This guide shows the full process to set up and deploy a Flask app on **AWS EC2 Ubuntu** using **PostgreSQL**, **Gunicorn**, **Nginx**, and **automatic deployment scripts**.
+This guide shows the full process to set up and deploy a Flask app on **AWS EC2 Ubuntu** using **PostgreSQL**, **Gunicorn**, **Nginx**.
 
 ---
 
@@ -670,5 +670,24 @@ sudo systemctl status myapp
 sudo nginx -t
 sudo systemctl reload nginx
 ```
+
+---
+
+## Screenshots of Git Commits
+
+<p align="center">
+  <strong>Screenshot 1</strong><br>
+  <img src="documentation/commits/git-commit-screenshot-1.png" alt="Screenshot 1" width="300" />
+</p>
+
+<p align="center">
+  <strong>Screenshot 2</strong><br>
+  <img src="documentation/commits/git-commit-screenshot-2.png" alt="Screenshot 2" width="300" />
+</p>
+
+<p align="center">
+  <strong>Screenshot 3</strong><br>
+  <img src="documentation/commits/git-commit-screenshot-3.png" alt="Screenshot 3" width="300" />
+</p>
 
 ---
