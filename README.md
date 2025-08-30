@@ -289,6 +289,7 @@ Pages to check:
 - When invalid email typed - Shows error.
 - Once a user user is added - it takes you back to the user list with a success message.
 - When an email is the same - a “duplicate email” error displays.
+- When an phone number is the same - a “A user with this email or phone number already exists!, error" displays.
 
 ---
 
@@ -298,6 +299,7 @@ Pages to check:
 - After changing details and updated - “User updated successfully” displays.
 - When changing the email to one that already exists - Error displays.
 - If the email is a duplicate regardless of case sensitive - Error displays.
+- When an phone number is the same - a “A user with this email or phone number already exists!, error" displays.
 - After clicking cancel - it takes you back to the user list.
 
 ---
