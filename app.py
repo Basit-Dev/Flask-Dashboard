@@ -86,11 +86,13 @@ def add_user():
         phone = request.form["phone"].strip()
         department = request.form["department"].strip()
 
-        stmt = select(User).where(func.lower(User.email) == email.lower())
+        stmt = select(User).where(
+            (func.lower(User.email) == email.lower()) | (User.phone == phone)
+        )
         existing_user = db.session.execute(stmt).scalar_one_or_none()
 
         if existing_user:
-            flash("A user with this email already exists!", "error")
+            flash("A user with this email or phone number already exists!", "error")
             return redirect(url_for("add_user"))
 
         user = User(name=name, email=email, phone=phone, department=department)
@@ -113,11 +115,15 @@ def update_user(id):
         phone = request.form["phone"].strip()
         department = request.form["department"].strip()
 
-        stmt = select(User).where(func.lower(User.email) == email.lower(), User.id != id)
+         # Check for duplicate email OR phone but ignore current user
+        stmt = select(User).where(
+            ((func.lower(User.email) == email.lower()) | (User.phone == phone)),
+            User.id != id
+        )
         duplicate = db.session.execute(stmt).scalar_one_or_none()
 
         if duplicate:
-            flash("A user with this email already exists!", "error")
+            flash("A user with this email or phone number already exists!", "error")
             return redirect(url_for("update_user", id=id))
 
         user.name = name
