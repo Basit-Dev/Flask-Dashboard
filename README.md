@@ -383,3 +383,209 @@ Run the tests with: pytest -vs
   <strong>DB Model</strong><br>
   <img src="documentation/database/database_diagram.png" alt="Database model diagram" width="300" />
 </p>
+
+---
+
+# Flask App Deployment on AWS EC2 (Ubuntu)
+
+This guide shows the full process to set up and deploy a Flask app on **AWS EC2 Ubuntu** using **PostgreSQL**, **Gunicorn**, **Nginx**, and **automatic deployment scripts**.
+
+---
+
+## **1. Launch EC2 Instance**
+
+- Choose **Ubuntu 22.04/24.04**  
+- In **Security Group**:  
+  - Allow **SSH (22)** → from your IP  
+  - Allow **HTTP (80)** → from anywhere (0.0.0.0/0)  
+  - Allow **HTTPS (443)** → if you want SSL  
+
+---
+
+## **2. Install Required Packages**
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y python3 python3-venv python3-dev python3-pip   libpq-dev postgresql postgresql-contrib nginx curl git
+```
+
+---
+
+## **3. Set Up PostgreSQL**
+```bash
+sudo -u postgres psql
+```
+Inside the `psql` shell:
+```sql
+CREATE DATABASE flask_app_db;
+CREATE USER flask_user WITH PASSWORD 'yourpassword';
+GRANT ALL PRIVILEGES ON DATABASE flask_app_db TO flask_user;
+\q
+```
+
+---
+
+## **3. Create PostgreSQL Tables**
+Inside the `psql` shell:
+```sql
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100) UNIQUE NOT NULL,
+  phone VARCHAR(20),
+  department VARCHAR(100)
+);
+---
+
+## **4. Deploy Your Flask App**
+Clone your repo:
+```bash
+cd /var/www
+sudo git clone https://github.com/Basit-Dev/Flask-Dashboard.git .
+sudo chown -R ubuntu:www-data myapp
+cd myapp
+```
+
+Create virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip wheel
+pip install -r requirements.txt
+```
+
+---
+
+## **5. Configure Environment Variables**
+Create `.env` file:
+```bash
+DB_USER=myuser
+DB_PASSWORD=mypassword
+DB_HOST=localhost
+DB_NAME=mydatabase
+FLASH_SECRET_KEY=mysecretkey
+```
+
+Load in `app.py`:
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+---
+
+## **6. Test Gunicorn**
+Run:
+```bash
+gunicorn -b 0.0.0.0:8000 app:app
+```
+Test in browser:  
+`http://13.62.20.58/`
+
+---
+
+## **7. Create Systemd Service for Gunicorn**
+Create service file:
+```bash
+sudo nano /etc/systemd/system/myapp.service
+```
+
+Paste:
+```ini
+[Unit]
+Description=Gunicorn instance for Flask app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/var/www/myapp
+Environment="PATH=/var/www/myapp/venv/bin"
+ExecStart=/var/www/myapp/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 app:app
+
+Restart=always
+RestartSec=3
+RuntimeDirectory=gunicorn
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable & start:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl daemon-reload
+sudo systemctl enable myapp
+sudo systemctl start myapp
+```
+
+---
+
+## **8. Configure Nginx**
+Create site config:
+```bash
+sudo nano /etc/nginx/sites-available/myapp
+```bash
+
+Paste:
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /static/ {
+        alias /var/www/myapp/static/;
+    }
+}
+```
+
+Enable site:
+```bash
+sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+---
+
+## **11. Testing & Logs**
+Check Gunicorn logs:
+```bash
+journalctl -u myapp -f
+```
+
+Check Nginx config:
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+
+---
+
+## Making the Flask App Publicly Available and Always Running
+
+we configured AWS EC2, Nginx, and Gunicorn so the Flask app is accessible from anywhere and runs automatically on boot or after crashes.
+
+## 1. Open AWS Security Group
+1. Go to AWS Console → EC2 → Security Groups
+2. Select the security group for your EC2 instance  
+3. Under nbound Rules - Edit, add:  
+   - HTTP, TCP, 80, Source: `0.0.0.0/0` (IPv4)  
+4. Save changes  
+
+This allows all incoming web traffic on port 80.
+
+
+## 2. Configure Nginx for Public Access 
+Edit the Nginx site config:
+```bash
+sudo nano /etc/nginx/sites-available/myapp
+
+----
